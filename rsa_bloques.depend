@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1527911113 source:c:\users\acer\desktop\ucsp\algebra abstracta\rsa_bloques\rsa_bloques\main.cpp
+	"rsa.h"
+
+1527912605 c:\users\acer\desktop\ucsp\algebra abstracta\rsa_bloques\rsa_bloques\rsa.h
+	"math.h"
+
+1527898829 c:\users\acer\desktop\ucsp\algebra abstracta\rsa_bloques\rsa_bloques\math.h
+	"str.h"
+
+1527802592 c:\users\acer\desktop\ucsp\algebra abstracta\rsa_bloques\rsa_bloques\bigint.h
+	<vector>
+	<cstdlib>
+	<iostream>
+	<iomanip>
+	<string>
+	<ctime>
+	<sstream>
+
+1527888236 c:\users\acer\desktop\ucsp\algebra abstracta\rsa_bloques\rsa_bloques\str.h
+	<NTL/ZZ.h>
+	"bigint.h"
+	<sstream>
+	<string>
+	<fstream>
+	<algorithm>
+	<vector>
+
