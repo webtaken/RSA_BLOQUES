@@ -1,6 +1,5 @@
 #include "math.h"
 
-
 class RSA
 {
  private:
@@ -38,7 +37,6 @@ class RSA
   RSA(ZZ e_c , ZZ N_c){//public key from other user
     N = N_c;
     e = e_c;
-    d = 619;
   }
   RSA(bigint c_p , bigint c_q , bigint c_bits){
     bits = bigint_to_ZZ(c_bits);
@@ -64,29 +62,35 @@ class RSA
     }while(BGCD(e , phi_n) != 1);
     d = inversa_modular(e , phi_n);
   }
+
   //ZZ resto_chino(ZZ a);
+
   string cifrar(string M){//26 es espacio
     vector <bigint> C;
     string m_c = "";
-    for(int i = 0; i < M.size(); i++){
-        m_c += alfabeto_values[pos_letra(M[i])];
-    }
-    while(m_c.size() % (digits(N) - 1) != 0){
+
+    for(int i = 0; i < M.size(); i++)
+        m_c += rellenar_letra(M[i]);
+
+    while(m_c.size() % (digits(N) - 1) != 0)
         m_c += '2';
-    }
+
+
     for(int i = 0; i < m_c.size(); i += digits(N) - 1){
         C.push_back( pow_mod((bigint)m_c.substr(i , digits(N) - 1) , ZZ_to_bigint(e) , ZZ_to_bigint(N) ) );
     }
+
     string cc = "";
     for(int i = 0; i < C.size(); i++){
         string aux = C[i].to_str();//the bignumber to string
-        while((bigint)aux.size() % (digits(N - 1)) != 0){
+        while((bigint)aux.size() % digits(N) != 0){
             aux.insert(aux.begin() , 1 , '0');
         }
         cc += aux;
     }
     return cc;
   }
+
   string descifrar(string C){
     vector <bigint> M;
     for(int i = 0; i < C.size(); i += digits(N - 1)){
@@ -105,6 +109,7 @@ class RSA
     }
     return res;
   }
+
   string generar_semilla(){
       ZZ n = bits / 10;//10% de la cantidad total de bits
       if(n == 0)n++;

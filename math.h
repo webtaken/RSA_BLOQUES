@@ -91,7 +91,7 @@ ZZ inversa_modular(ZZ a , ZZ b){
   return s_1;// a*s mod b = 1
 }
 
-bool Miller_Rabin(ZZ p , int iteration = 200){
+bool Miller_Rabin(ZZ p , int iteration = 30){
   if (p < 2)
     return false;
   if (p != 2 && !IsOdd(p))

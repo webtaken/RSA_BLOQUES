@@ -17,9 +17,9 @@ int main()
 //    cif.close();
 //    dir.close();
 //    des.close();
-    RSA mi((ZZ)1024);
-    string g =  mi.generar_semilla();
-    cout << mi.generar_numero_aleatorio(g , (ZZ)8 , (ZZ)2) << endl;
+    RSA mi((ZZ)5);
+    cout << mi.get_N() << " " << mi.get_e() << endl;
+    cout << mi.cifrar("hola") << endl;
     return 0;
 
 }
